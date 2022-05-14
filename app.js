@@ -38,5 +38,15 @@ function generateWordPairs(text) {
   }
 }
 
+function writeLine(markovChain, wordCount){
+  for (let i = 0; i < wordCount; i++){
+    
+  }
+}
+
+function randomWord(markovChain, word){
+
+}
+
 let wordPairs = generateWordPairs(text);
 console.log(wordPairs);
