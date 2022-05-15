@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Markov Poem Generator</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-    <h1>Poem Generator</h1>
+      <h1>Poem Generator</h1>
     </header>
     <section id="input-section">
-        <input placeholder = "# lines < 10" id ="numLines" type="number" min="1" max="10" value="3">
-        <input placeholder = "# words < 10"id ="numWords" type="number" min="1" max="10" value="4">
-        <input placeholder = "Lyrics go here!" type="text" id="text-input" name="text-input" value="Ever since I left the city, you, you, you You and me we just don't get along">
-        <input id="submit" class="button" type="button"  value="GENERATE POEM">
+      <input
+        placeholder="# lines < 10"
+        id="numLines"
+        type="number"
+        min="1"
+        max="10"
+        value="3"
+      />
+      <input
+        placeholder="# words < 10"
+        id="numWords"
+        type="number"
+        min="1"
+        max="10"
+        value="4"
+      />
+      <input
+        placeholder="Lyrics go here!"
+        type="text"
+        id="text-input"
+        name="text-input"
+        value="Ever since I left the city, you, you, you You and me we just don't get along"
+      />
+      <input id="submit" class="button" type="button" value="GENERATE POEM" />
     </section>
     <section id="output-section">
-        <h2></h2>
-        <div id="text-section">
-           
-        </div>
+      <h2></h2>
+      <div id="text-section"></div>
     </section>
-    
-    <footer>Dakota Solis</footer>
 
-</body>
-<script type="text/javascript" src="app.js"></script>
+    <footer>Dakota Solis</footer>
+  </body>
+  <script type="text/javascript" src="app.js"></script>
 </html>
