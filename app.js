@@ -29,30 +29,20 @@ function generateWordPairs(text) {
 }
 
 function writeLine(markovChain, wordCount) {
-  // console.log(markovChain);
   let keys = Object.keys(markovChain);
-  console.log(keys); 
   let startingWord = randomWord(keys);
-  console.log(startingWord)
-  let line = [];
+  let line = [startingWord];
 
-  for(let i = 1; i < wordCount; i++){
+  for (let i = 1; i < wordCount; i++) {
     let nextPos = markovChain[startingWord];
-    console.log(nextPos);
-    let newWord = randomWord(keys);
-    console.log(newWord)
-    startingWord = markovChain[nextPos];
-    line.push(nextPos);
-    if (line.length > wordCount){
-      continue;
+    if (nextPos) {
+      startingWord = randomWord(nextPos);
+      line.push(startingWord);
+      if (line.length > wordCount) {
+        break;
+      }
     }
-    line.push( randomWord(startingWord));
-    console.log(randomWord(startingWord))
-
-
-    
   }
-  // console.log(line);
   return line.join(" ");
 }
 
@@ -62,43 +52,15 @@ function randomWord(word) {
   return word[randomNum];
 }
 
-function generatePoem(corpus, numLines) {
+function generatePoem(corpus, numLines, numWords) {
   let poem = "";
   corpus = parseText(corpus);
   let wordPairs = generateWordPairs(corpus);
   for (let i = 0; i < numLines; i++) {
-    poem += writeLine(wordPairs, 3) + "\n";
+    poem += writeLine(wordPairs, numWords) + "\n";
   }
   return poem;
 }
 
-console.log(generatePoem(text, 1));
+console.log(generatePoem(text, 4, 2));
 
-
-
-
-// let newLine = "";
-// let tempLine = ""
-// // startingWord = tempLine;
-// let keys = Object.keys(markovChain);
-// let startingWord = markovChain[keys[(keys.length * Math.random()) << 0]];
-// // console.log(startingWord)
-// newLine += startingWord[0];
-// let nextWord = randomWord(startingWord);
-// for (let i = 0; i < wordCount; i++) {
-//   // console.log(nextWord)
-//   if (!nextWord){
-//     nextWord = randomWord(startingWord);
-//   }else {
-  
-//   newLine += nextWord + " ";
-//   }
-//   // tempLine = startingWord;
-//   // newLine += randomWord(tempLine)
-//   // startingWord = tempLine;
-
-//   // if (newLine === undefined) {
-//   //   newLine += randomWord(startingWord) + " ";
-//   // }
-// }
-// return newLine;
