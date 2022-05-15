@@ -41,6 +41,8 @@ function writeLine(markovChain, wordCount) {
       if (line.length > wordCount) {
         break;
       }
+    }else {
+      startingWord=randomWord(keys);
     }
   }
   return line.join(" ");
@@ -53,14 +55,41 @@ function randomWord(word) {
 }
 
 function generatePoem(corpus, numLines, numWords) {
+
+  let textSection = document.getElementById("text-section");
+  textSection.innerHTML = "";
   let poem = "";
   corpus = parseText(corpus);
   let wordPairs = generateWordPairs(corpus);
+ 
   for (let i = 0; i < numLines; i++) {
-    poem += writeLine(wordPairs, numWords) + "\n";
+    let newPara = document.createElement('p');
+    poem = writeLine(wordPairs, numWords) + "\n";
+    textSection.appendChild(newPara);
+    newPara.innerHTML = poem;
   }
   return poem;
 }
 
-console.log(generatePoem(text, 4, 2));
+
+let button = document.getElementById("submit");
+
+
+
+if(button){
+  button.addEventListener('click', function(){
+  let userText = document.getElementById("text-input").value;
+  let userLine = document.getElementById("numLines").value;
+  let userWord = document.getElementById("numWords").value;
+
+  if(userLine> 10 || userWord > 10){
+    alert("Use a value less than 10.")
+
+  }else {
+  text = userText;
+ let newText = generatePoem(text,userLine,userWord);
+  }
+
+});
+}
 
